@@ -18,7 +18,7 @@ module.exports = {
   },
  
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
           filename: 'index.html',

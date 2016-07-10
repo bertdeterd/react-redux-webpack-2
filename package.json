@@ -4,7 +4,7 @@
   "description": "Starter kit for React and Redux Pluralsight course by Cory House",
   "scripts": {
     "build:dev": "webpack -d --display-error-details",
-    "start:dev": "webpack-dev-server -d --inline"
+    "start:dev": "webpack-dev-server -d --inline --hot"
   },
   "author": "Bert Deterd",
   "license": "MIT",
