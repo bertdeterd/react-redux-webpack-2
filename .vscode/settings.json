@@ -2,5 +2,6 @@
 {
     "jshint.enable": false,
     "eslint.enable": true,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 100
 }

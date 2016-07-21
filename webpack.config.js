@@ -6,6 +6,7 @@ let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   debug: true,
+  webpack: webpack,
   devtool: 'cheap-module-eval-source-map',
   entry: [
     './src/main.jsx'
