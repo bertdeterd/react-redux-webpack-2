@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 /*------------------------------------------
 import reducers below with a logical alias name
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
     the names below will be exposed in state as state.<name>. 
     This is important for the views: mapStateToProps
     ------------------------------------------*/
-    caseTypes  
+    caseTypes,
+    form: formReducer  
 });
 
 export default rootReducer;

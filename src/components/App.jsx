@@ -10,12 +10,9 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 
-import { StickyContainer, Sticky } from 'react-sticky';
-
-
 class App extends React.Component {
 
-     constructor(props, context) {
+    constructor(props, context) {
         super(props, context);
 
         //this.onTitleChange = this.onTitleChange.bind(this);
@@ -23,7 +20,7 @@ class App extends React.Component {
 
     }
 
-      onClickSave(e) {
+    onClickSave(e) {
         console.log(e);
         //TODO howto fire action
     }
@@ -31,13 +28,7 @@ class App extends React.Component {
     render() {
         return (
             <MuiThemeProvider>
-             <div>
-            
-            <footer className="footer">hallo</footer>
-           
-
-               
-
+                <div>
                     <AppBar onLeftIconButtonTouchTap={this.onClickSave}
                         title="Title"
                         iconElementRight={
