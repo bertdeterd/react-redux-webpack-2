@@ -1,18 +1,8 @@
-//var WebpackStrip = require('strip-loader');
+
 var devConfig = require('./webpack.config.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
-/* ----------------------------------------------
- Delete all development code like console.log
----------------------------------------------- */ 
-/*var stripLoader = {
- test: [/\.js$/, /\.ts$/ ],
- exclude: /node_modules/,
- loader: WebpackStrip.loader('console.log')
-};
-devConfig.module.preloaders.push(stripLoader);
-*/
 
 /* ----------------------------------------------
  Set devtool in this production config

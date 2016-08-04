@@ -1,19 +1,19 @@
 import React, {PropTypes} from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-
 import {bindActionCreators} from 'redux';
-import * as myActions from '../../actions/caseTypeActions';
+//import * as myActions from '../../actions/caseTypeActions';
 
 const CaseTypesTable = props => {
-    const xx = 'AA';
 
-    /*
-  const handleRowSelection = (e) => {
-    console.log(e);
-    let x = props.actions;
-  };
-*/
+    /*---------------------------------------------------------
+    Fixed settings
+    ---------------------------------------------------------*/
+    const deselectOnClickaway = false;
 
+
+    /*---------------------------------------------------------
+       UI
+    ---------------------------------------------------------*/
     return (
         <Table onRowSelection={props.onRowSelection} >
             <TableHeader>
@@ -22,7 +22,7 @@ const CaseTypesTable = props => {
                     <TableHeaderColumn>Title</TableHeaderColumn>
                 </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody deselectOnClickaway={deselectOnClickaway}>
 
                 {props.caseTypes.map((row, index) => (
                     <TableRow key={index}>
