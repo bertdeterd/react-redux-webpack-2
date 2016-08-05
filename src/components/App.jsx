@@ -26,7 +26,7 @@ class App extends React.Component {
             <MuiThemeProvider>
                 <div>
                     <AppBar onLeftIconButtonTouchTap={this.onClickSave}
-                        title="Title"
+                        title="My React App"
                         iconElementRight={
                             <IconMenu
                                 iconButtonElement={
@@ -44,9 +44,7 @@ class App extends React.Component {
                         />
 
 
-                    <p>
-                        Header..in app.jsx file
-                    </p>
+                   
                     {this.props.children}
 
                 </div>

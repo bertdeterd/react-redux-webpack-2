@@ -27,7 +27,7 @@ const HomePage = props => {
 
     return (
         <div className="jumbotron">
-            <h1>Pttss</h1>
+            <h1>Demo List</h1>
             <button onClick={props.actions.getAllCaseTypes}>Refresh</button>
             <CaseTypesTable caseTypes={props.items} onRowSelection={handleRowSelection} />
             <ContactForm onSubmit={_handleSubmit}  />

@@ -12,7 +12,7 @@ This will run the automated build process, start up a webserver, and open the ap
 
  // "react": "15.0.2",
    // "react-dom": "15.0.2",
-
+//command: node server/server.js
 
 ###Info/Credits
 http://survivejs.com/webpack/advanced-techniques/configuring-react/
