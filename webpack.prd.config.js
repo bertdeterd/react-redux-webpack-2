@@ -1,4 +1,3 @@
-
 var devConfig = require('./webpack.config.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';

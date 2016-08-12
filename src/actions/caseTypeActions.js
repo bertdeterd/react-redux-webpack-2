@@ -1,14 +1,14 @@
 import caseTypeApi from '../api/caseTypeApi';
 
-
-
-
 export const CASETYPES_REFRESH = 'CASETYPES_REFRESH';
 
-
-//ACTION CREATORS 
-//will be executed within redux
-//must be handled by a reducer
+/**
+ * -------------------------------------
+ * ACTION CREATORS 
+ * -------------------------------------
+ * will be executed within redux
+ * Actions must be handled by a reducer
+*/
 export function createCourse(course) {
     return { type: 'CREATE_COURSE', course };
 }
@@ -21,21 +21,30 @@ export function getCaseTypeByIndex(selectedRows) {
    return { type: 'SELECTED_CASETYPE', selectedRows };
 }
 
-/*----------------------------------------------------------------------
-THUNKS
-----------------------------------------------------------------------*/
+/**
+ * -------------------------------------
+ * THUNKS
+ * -------------------------------------
+ * Redux Thunk middleware allows you to write action creators 
+ * that return a function instead of an action. 
+ * The thunk can be used to:
+ * 1. delay the dispatch of an action, 
+ * 2. or to dispatch only if a certain condition is met
+ * example: store.dispatch(getAllCaseTypes());
+*/
 export function getAllCaseTypes() {
     return function (dispatch) {
         return caseTypeApi.getAllCaseTypes()
             .then(
             caseTypes => {
-                //fire off success via action creator
+                //dispatch an action through an action creator 
                 dispatch(getAllCaseTypesSuccess(caseTypes));
             })
             .catch(
             error => {
                 throw (error);
-            });//we should do getAllCaseTypesError
+                //TODO: we should do getAllCaseTypesError
+            });
     };
 }
 

@@ -19,10 +19,9 @@ const HomePage = props => {
             let obj = props.items[e[0]];
 
             //TODO: naar thunk om ALLE detailgegevens op te halen???? JAAAAA !!!!
+
             props.formactions.initialize('contact', obj);
         }
-
-        //props.actions.getCaseTypeByIndex(e);
     };
 
     return (

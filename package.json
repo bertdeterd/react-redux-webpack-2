@@ -1,7 +1,7 @@
 {
-  "name": "pluralsight-redux-starter",
+  "name": "redux-boilerplate-starter",
   "version": "1.0.0",
-  "description": "Starter kit for React and Redux Pluralsight course by Cory House",
+  "description": "Starter React-Redux App",
   "scripts": {
     "build:dev": "webpack -d --display-error-details",
     "start:dev": "webpack-dev-server -d --inline --hot",
@@ -74,6 +74,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/bertdeterd/react-redux-webpack-2.git"
   }
 }

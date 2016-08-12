@@ -27,10 +27,11 @@ build/Release
 node_modules
 
 #dist folder
-#dist
+dist
 
-#Webstorm metadata
+#IDE metadata
 .idea
+.vscode
 
 # Mac files
 .DS_Store
