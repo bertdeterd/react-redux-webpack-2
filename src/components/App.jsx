@@ -10,19 +10,18 @@ class App extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-
         //this.onTitleChange = this.onTitleChange.bind(this);
         //this.onClickSave = this.onClickSave.bind(this);
-
     }
 
     onClickSave(e) {
         console.log(e);
-        //TODO howto fire action
+        //TODO dispatch action
     }
 
     render() {
         return (
+
             <MuiThemeProvider>
                 <div>
                     <AppBar onLeftIconButtonTouchTap={this.onClickSave}
@@ -40,15 +39,9 @@ class App extends React.Component {
                                 <MenuItem primaryText="Sign out" />
                             </IconMenu>
                         }
-
-                        />
-
-
-                   
+                      />
                     {this.props.children}
-
                 </div>
-
             </MuiThemeProvider>
 
         );

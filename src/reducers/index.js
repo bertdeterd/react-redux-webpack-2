@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-/*------------------------------------------
-import reducers below with a logical alias name 
-------------------------------------------*/
+/** 
+ * List all reducers here
+ * import reducers below with a logical alias name 
+*/
 import caseTypes from './caseTypeReducer';
 
 

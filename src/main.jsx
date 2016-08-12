@@ -16,7 +16,7 @@ const store = configureStore();
 
 injectTapEventPlugin();
 
-//execute thunk > dispatch action > handle in reducer > view:mapstatetoprops
+//execute thunk > dispatch action > handled in reducer > sent to view:mapstatetoprops
 store.dispatch(getAllCaseTypes());
 
 render(
