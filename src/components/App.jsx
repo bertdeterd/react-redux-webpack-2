@@ -6,6 +6,8 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
+import { Link } from 'react-router';
+
 class App extends React.Component {
 
     constructor(props, context) {
@@ -34,7 +36,7 @@ class App extends React.Component {
                                 targetOrigin={{ horizontal: 'right', vertical: 'top' }}
                                 anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
                                 >
-                                <MenuItem primaryText="Refresh" />
+                                <MenuItem primaryText="Refresh" linkButton containerElement={<Link to="/about" />}/>
                                 <MenuItem primaryText="Help" />
                                 <MenuItem primaryText="Sign out" />
                             </IconMenu>

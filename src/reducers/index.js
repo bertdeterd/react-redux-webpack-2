@@ -1,6 +1,9 @@
 import {combineReducers} from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
+import { routerReducer } from 'react-router-redux';
+//import { Router, Route, browserHistory } from 'react-router';
+
 /** 
  * List all reducers here
  * import reducers below with a logical alias name 
@@ -16,6 +19,7 @@ const rootReducer = combineReducers({
     in the views (like: state.form.contact)
     ------------------------------------------*/
     caseTypes,
+    routing: routerReducer,
     form: formReducer  
 });
 

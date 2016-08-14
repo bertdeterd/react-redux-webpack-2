@@ -1,12 +1,11 @@
 import React, {PropTypes} from 'react';
-//import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import * as myFormActions from 'redux-form';
 import {bindActionCreators} from 'redux';
 import * as myActions from '../../actions/caseTypeActions';
 //import CaseTypeLine from './CaseTypeLine';
 import CaseTypesTable from '../common/CaseTypesTable';
-import ContactForm from './ContactForm';
+import CaseTypeDetailsForm from './ContactForm';
 
 const HomePage = props => {
 
@@ -17,10 +16,10 @@ const HomePage = props => {
     const handleRowSelection = (e) => {
         if (e[0] != null) {
             let obj = props.items[e[0]];
-
             //TODO: naar thunk om ALLE detailgegevens op te halen???? JAAAAA !!!!
-
             props.formactions.initialize('contact', obj);
+        }else{
+            props.formactions.initialize('contact', {});
         }
     };
 
@@ -29,7 +28,7 @@ const HomePage = props => {
             <h1>Demo List</h1>
             <button onClick={props.actions.getAllCaseTypes}>Refresh</button>
             <CaseTypesTable caseTypes={props.items} onRowSelection={handleRowSelection} />
-            <ContactForm onSubmit={_handleSubmit}  />
+            <CaseTypeDetailsForm onSubmit={_handleSubmit}  />
         </div>
     );
 };

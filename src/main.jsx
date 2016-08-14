@@ -11,17 +11,23 @@ import {getAllCaseTypes} from './actions/caseTypeActions';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {Provider} from 'react-redux';
+
+import { syncHistoryWithStore } from 'react-router-redux';
+
 import configureStore from './store/configureStore';
 const store = configureStore();
 
 injectTapEventPlugin();
+
+// Create an enhanced history that syncs navigation events with the store 
+const history = syncHistoryWithStore(browserHistory, store);
 
 //execute thunk > dispatch action > handled in reducer > sent to view:mapstatetoprops
 store.dispatch(getAllCaseTypes());
 
 render(
     <Provider store={store}>
-        <Router history={browserHistory} routes={routes} />
+        <Router history={history} routes={routes} />
     </Provider>,
     document.getElementById('app')
 );

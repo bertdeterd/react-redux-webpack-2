@@ -3,5 +3,6 @@
     "jshint.enable": false,
     "eslint.enable": true,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 100
+    "files.autoSaveDelay": 100,
+    "terminal.integrated.shell.windows":"C:\\Program Files (x86)\\Git\\usr\\bin\\bash.exe"
 }

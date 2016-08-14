@@ -4,7 +4,7 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  debug: true,
+  debug: false,
   webpack: webpack,
   devtool: 'cheap-module-eval-source-map',
   entry: [
@@ -13,7 +13,7 @@ module.exports = {
 
   target: 'web',
   output: {
-    path: __dirname + '/dist',
+    path: __dirname + '/dist', //! to lower case workaround .toLowerCase()
     filename: 'bundle.js'
   },
  

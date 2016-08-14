@@ -1,65 +1,31 @@
-import React, {PropTypes} from 'react';
+import React from 'react'; //, {PropTypes}
 import { Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as myActions from '../../actions/caseTypeActions';
 import RaisedButton from 'material-ui/RaisedButton';
-//import * as myFormActions from 'redux-form';
 
-/*
-const validate = values => {
-  const errors = {}
-  if (!values.username) {
-    errors.username = 'Required'
-  } else if (values.username.length > 15) {
-    errors.username = 'Must be 15 characters or less'
-  }
-  if (!values.email) {
-    errors.email = 'Required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
-  }
-  if (!values.age) {
-    errors.age = 'Required'
-  } else if (isNaN(Number(values.age))) {
-    errors.age = 'Must be a number'
-  } else if (Number(values.age) < 18) {
-    errors.age = 'Sorry, you must be at least 18 years old'
-  }
-  return errors
-}
-*/
+//import TextField from 'material-ui/TextField';
 
-/*
-const renderField = field => (
-  <div>
-    <label>{field.input.placeholder}</label>
-    <div>
-      <input {...field.input}/>
-      {field.touched && field.error && <span>{field.error}</span>}
-    </div>
-  </div>
-)
 
- /*<button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
 
-*/
+//
+import { TextField } from 'redux-form-material-ui'; //'redux-form-material-ui';
+
 
 let ContactForm = (props) => {
 
-    //importing props
-    const {submitting, pristine, handleSubmit } = props; //handleSubmit is supplied as onSubmit in parent 
+    //importing props, handleSubmit is supplied as onSubmit in parent 
+    const {submitting, pristine, handleSubmit } = props; 
 
     /*---------------------------------------------------------
       Fixed settings
-      ---------------------------------------------------------*/
+    ---------------------------------------------------------*/
     const primary = true;
-
-   
 
     return (
         <form onSubmit={handleSubmit}>
-            <Field name="title" type="text" component="input" placeholder="Case Title"/>
+            <Field name="title" type="text" component="input" placeholder="Case Title"/><br/>
             <Field name="id" type="text" component="input" placeholder="Email"/>
             <div>
                 <RaisedButton primary={primary} label="Opslaan" type="submit" disabled={pristine || submitting}/>
@@ -69,16 +35,16 @@ let ContactForm = (props) => {
 };
 
 ContactForm.propTypes = {
-    handleSubmit: PropTypes.func,
-    pristine: PropTypes.bool,
-    submitting: PropTypes.bool,
-    actions: PropTypes.object//,//,
+    handleSubmit: React.PropTypes.func,
+    pristine: React.PropTypes.bool,
+    submitting: React.PropTypes.bool,
+    actions: React.PropTypes.object//,//,
     //initialize: PropTypes.func
     //selected: PropTypes.object
 };
 
 ContactForm = reduxForm({
-    form: 'contact'  // a unique identifier for this form
+    form: 'contact'  
     //validate                 // <--- validation function given to redux-form
 })(ContactForm);
 
