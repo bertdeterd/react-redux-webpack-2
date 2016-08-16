@@ -3,9 +3,15 @@ import {connect} from 'react-redux';
 import * as myFormActions from 'redux-form';
 import {bindActionCreators} from 'redux';
 import * as myActions from '../../actions/caseTypeActions';
-//import CaseTypeLine from './CaseTypeLine';
 import CaseTypesTable from '../common/CaseTypesTable';
 import CaseTypeDetailsForm from './ContactForm';
+
+
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import MenuItem from 'material-ui/MenuItem';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 const HomePage = props => {
 
@@ -18,17 +24,39 @@ const HomePage = props => {
             let obj = props.items[e[0]];
             //TODO: naar thunk om ALLE detailgegevens op te halen???? JAAAAA !!!!
             props.formactions.initialize('contact', obj);
-        }else{
+        } else {
             props.formactions.initialize('contact', {});
         }
     };
 
     return (
-        <div className="jumbotron">
-            <h1>Demo List</h1>
-            <button onClick={props.actions.getAllCaseTypes}>Refresh</button>
-            <CaseTypesTable caseTypes={props.items} onRowSelection={handleRowSelection} />
-            <CaseTypeDetailsForm onSubmit={_handleSubmit}  />
+        <div>
+
+            <Toolbar>
+
+                <ToolbarGroup firstChild>
+                    <DropDownMenu >
+                        <MenuItem value={1} primaryText="All Broadcasts" />
+                        <MenuItem value={2} primaryText="All Voice" />
+                        <MenuItem value={3} primaryText="All Text" />
+                        <MenuItem value={4} primaryText="Complete Voice" />
+                        <MenuItem value={5} primaryText="Complete Text" />
+                        <MenuItem value={6} primaryText="Active Voice" />
+                        <MenuItem value={7} primaryText="Active Text" />
+                    </DropDownMenu>
+                </ToolbarGroup>
+
+                <ToolbarGroup>
+                    <ToolbarTitle text="Options" />
+                    <ToolbarSeparator />
+                    <RaisedButton onClick={props.actions.getAllCaseTypes} label="Refresh" primary />
+                </ToolbarGroup>
+            </Toolbar>
+
+            <div>
+                <CaseTypesTable caseTypes={props.items} onRowSelection={handleRowSelection} />
+                <CaseTypeDetailsForm onSubmit={_handleSubmit}  />
+            </div>
         </div>
     );
 };

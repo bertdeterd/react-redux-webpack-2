@@ -56584,7 +56584,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//import CaseTypeLine from './CaseTypeLine';
 	var HomePage = function HomePage(props) {
 	
 	    var _handleSubmit = function _handleSubmit(e) {
@@ -66581,7 +66580,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//'redux-form-material-ui';
+	//default import 
 	
 	
 	//, {PropTypes}
@@ -66601,7 +66600,7 @@
 	    return _react2.default.createElement(
 	        'form',
 	        { onSubmit: handleSubmit },
-	        _react2.default.createElement(_reduxForm.Field, { name: 'title', type: 'text', component: 'input', placeholder: 'Case Title' }),
+	        _react2.default.createElement(_reduxForm.Field, { name: 'title', type: 'text', component: _reduxFormMaterialUi.TextField, placeholder: 'Case Title' }),
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(_reduxForm.Field, { name: 'id', type: 'text', component: 'input', placeholder: 'Email' }),
 	        _react2.default.createElement(
@@ -66610,13 +66609,16 @@
 	            _react2.default.createElement(_RaisedButton2.default, { primary: primary, label: 'Opslaan', type: 'submit', disabled: pristine || submitting })
 	        )
 	    );
-	};
+	}; //importing the default so no {} required 
 	
+	//import TextField from 'material-ui/TextField';
 	//import TextField from 'material-ui/TextField';
 	
 	
-	//
+	//import { renderTextField } from '../common/TextField'; 
 	
+	
+	//import   TextField   from 'redux-form-material-ui/lib/TextField';  //default import 
 	
 	ContactForm.propTypes = {
 	    handleSubmit: _react2.default.PropTypes.func,
