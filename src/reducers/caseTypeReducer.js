@@ -1,10 +1,13 @@
-export default function caseTypeReducer(state = {}, action) {
+export default function caseTypeReducer(state = { showActivities: false }, action) {
+
+    console.log('EXECUTING ' + action.type);
     switch (action.type) {
 
         case 'CASETYPES_SUCCESS':
             //replace what was in our state
-            //by making a copy {} and adding some changes
-            //return action.caseTypes;
+            //by making a copy {} from the current state 
+            //and adding some changes
+            //i.c. return action.caseTypes;
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: false,
@@ -12,7 +15,7 @@ export default function caseTypeReducer(state = {}, action) {
             });
 
         case 'SELECTED_CASETYPE':
-             return Object.assign({}, state, {
+            return Object.assign({}, state, {
                 selected: state.items[action.selectedRows[0]]
             });
 
@@ -21,8 +24,18 @@ export default function caseTypeReducer(state = {}, action) {
                 Object.assign({}, action.course)
             ];
 
+        case 'SHOW_ACTIVITIES':
+            if (action.toggle === false || action.toggle === true) {
+                return Object.assign({}, state, {
+                    showActivities: action.toggle
+                });
+            } else {
+                return Object.assign({}, state, {
+                    showActivities: !state.showActivities
+                });
+            }
+
         default:
             return state;
-
     }
 }

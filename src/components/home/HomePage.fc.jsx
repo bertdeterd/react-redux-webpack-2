@@ -12,6 +12,7 @@ import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import Drawer from 'material-ui/Drawer';
 
 const HomePage = props => {
 
@@ -49,7 +50,9 @@ const HomePage = props => {
                 <ToolbarGroup>
                     <ToolbarTitle text="Options" />
                     <ToolbarSeparator />
-                    <RaisedButton onClick={props.actions.getAllCaseTypes} label="Refresh" primary />
+                     <RaisedButton onClick={props.actions.getAllCaseTypes} label="Refresh" primary />
+                    <RaisedButton onClick={props.actions.showActivities} label="Show" primary />
+                   
                 </ToolbarGroup>
             </Toolbar>
 
@@ -57,6 +60,11 @@ const HomePage = props => {
                 <CaseTypesTable caseTypes={props.items} onRowSelection={handleRowSelection} />
                 <CaseTypeDetailsForm onSubmit={_handleSubmit}  />
             </div>
+
+             <Drawer width={200} openSecondary open={props.showActivities} >
+           <RaisedButton onClick={props.actions.showActivities} label="Show" primary />
+             </Drawer>
+
         </div>
     );
 };
@@ -66,18 +74,21 @@ HomePage.propTypes = {
     actions: PropTypes.object,
     formactions: PropTypes.object,
     selectedItem: PropTypes.object,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    showActivities: PropTypes.bool
 };
 
 HomePage.defaultProps = {
     items: [],
-    selectedItem: {}
+    selectedItem: {},
+    showActivities: false
 };
 
 const mapStateToProps = (state, ownProps) => {
     return {
         items: state.caseTypes.items,
-        selectedItem: state.caseTypes.selected
+        selectedItem: state.caseTypes.selected,
+        showActivities: state.caseTypes.showActivities
     };
 };
 

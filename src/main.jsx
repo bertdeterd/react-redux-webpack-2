@@ -10,6 +10,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import {getAllCaseTypes} from './actions/caseTypeActions';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/react-bootstrap/dist/react-bootstrap.min';
 import {Provider} from 'react-redux';
 
 import { syncHistoryWithStore } from 'react-router-redux';

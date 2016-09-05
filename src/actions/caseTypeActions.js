@@ -21,6 +21,10 @@ export function getCaseTypeByIndex(selectedRows) {
    return { type: 'SELECTED_CASETYPE', selectedRows };
 }
 
+export function showActivities(toggle) {
+   return { type: 'SHOW_ACTIVITIES', toggle };
+}
+
 /**
  * -------------------------------------
  * THUNKS
@@ -32,8 +36,12 @@ export function getCaseTypeByIndex(selectedRows) {
  * 2. or to dispatch only if a certain condition is met
  * example: store.dispatch(getAllCaseTypes());
 */
+
+
+
 export function getAllCaseTypes() {
     return function (dispatch) {
+         dispatch(showActivities(false));
         return caseTypeApi.getAllCaseTypes()
             .then(
             caseTypes => {

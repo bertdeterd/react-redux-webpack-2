@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
     Inside form (state.form) will be the forms known you declare 
     in the views (like: state.form.contact)
     ------------------------------------------*/
-    caseTypes,
+    caseTypes: caseTypes,
     routing: routerReducer,
     form: formReducer  
 });
