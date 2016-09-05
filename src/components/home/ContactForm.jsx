@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as myActions from '../../actions/caseTypeActions';
 import RaisedButton from 'material-ui/RaisedButton';  //importing the default so no {} required 
 
-import TextField   from 'redux-form-material-ui/lib/TextField';  //default import 
+import TextField from 'redux-form-material-ui/lib/TextField';  //default import 
 //import  { TextField }   from 'redux-form-material-ui';  //default import 
 
 import Paper from 'material-ui/Paper';
@@ -22,14 +22,33 @@ import { Grid, Row, Col } from 'react-bootstrap';
 const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 
+import {orange500, blue500} from 'material-ui/styles/colors';
+import validate from '../../validations/contact';
+import renderTextField from '../general/renderTextField';
 
 const style = {
 
-    padding: 20,
     margin: 10,
-    textAlign: 'center',
     display: 'inline-block'
 };
+//   <Field   name="title" type="text" component={TextField} hintText="ID" floatingLabelText="Case Type ID"/>
+
+const styles = {
+    errorStyle: {
+        color: orange500,
+    },
+    underlineStyle: {
+        borderColor: orange500,
+    },
+    floatingLabelStyle: {
+        color: blue500,
+    },
+    floatingLabelFocusStyle: {
+        color: orange500,
+    },
+};
+
+
 
 let ContactForm = (props) => {
 
@@ -42,25 +61,37 @@ let ContactForm = (props) => {
     const primary = true;
 
     return (
-        <div>
+        <div className="container-fluid">
 
-            <form onSubmit={handleSubmit}>
-                <legend>Title form</legend>
+            <form onSubmit={handleSubmit}  >
 
-                <Grid fluid>
-                    <Row className="show-grid">
-                        <Col xs={3} md={5}>
-                            <Field style={style} name="title" type="text" component={TextField} hintText="ID" floatingLabelText="Case Type ID"/>
-                            <Field style={style} name="id" type="text" component={TextField} hintText="ID2" floatingLabelText="Case Type ID2"/><br/>
-                            <div>
-                                <RaisedButton primary={primary} label="Opslaan" type="submit" disabled={pristine || submitting}/>
-                            </div>
-                        </Col>
-                    </Row>
-                </Grid>
+                <div className="row">
+                    <div className="form-group">
+
+                        <div className="col-sm-3">
+                            <Field id="id" name="id" type="text"
+                                floatingLabelStyle={styles.floatingLabelStyle}
+                                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                                floatingLabelText="Case ID"
+                                component={TextField}/>
+                        </div>
+                        <div className="col-sm-6">
+                            <Field name="title" type="text"
+                                floatingLabelStyle={styles.floatingLabelStyle}
+                                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                                component={TextField}
+                                floatingLabelText="Case Title"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="form-group">
+                        <RaisedButton primary={primary} label="Opslaan" type="submit" disabled={pristine || submitting}/>
+                    </div>
+                </div>
 
             </form>
-
 
 
 
@@ -99,8 +130,8 @@ ContactForm.propTypes = {
 };
 
 ContactForm = reduxForm({
-    form: 'contact'
-    //validate                 // <--- validation function given to redux-form
+    form: 'contact',
+    validate                 // <--- validation function given to redux-form!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 })(ContactForm);
 
 
